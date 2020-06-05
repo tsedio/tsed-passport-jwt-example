@@ -1,26 +1,25 @@
-import {PlatformApplication} from "@tsed/common";
-import {TestContext} from "@tsed/testing";
+import {PlatformApplication, PlatformTest} from "@tsed/common";
 import * as SuperTest from "supertest";
-import {AuthController} from "./AuthController";
 import {Server} from "../../Server";
+import {AuthController} from "./AuthController";
 
 describe("AuthController", () => {
   let request: SuperTest.SuperTest<SuperTest.Test>;
 
   beforeEach(
-    TestContext.bootstrap(Server, {
+    PlatformTest.bootstrap(Server, {
       mount: {
-        "/": [AuthController],
-      },
+        "/": [AuthController]
+      }
     })
   );
   beforeEach(
-    TestContext.inject([PlatformApplication], (app: PlatformApplication) => {
+    PlatformTest.inject([PlatformApplication], (app: PlatformApplication) => {
       request = SuperTest(app.raw);
     })
   );
 
-  afterEach(TestContext.reset);
+  afterEach(PlatformTest.reset);
 
   it("should call GET /auth", async () => {
     const response = await request.get("/auth").expect(200);

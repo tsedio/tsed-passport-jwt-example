@@ -602,6 +602,11 @@
   dependencies:
     tslib "1.11.1"
 
+"@tsed/platform-express@5.56.0":
+  version "5.56.0"
+  resolved "https://registry.yarnpkg.com/@tsed/platform-express/-/platform-express-5.56.0.tgz#ff3242d5e8496d054d658e5e95e5022af6d6af73"
+  integrity sha512-zeJgMXLG943sAx+dl49eGZIXfcl0823SdVBqGdHI89B5cihcY9vwEJeJMdSvqRieeq8QE0jjOhXyhKguk/wkeA==
+
 "@tsed/swagger@5.56.0":
   version "5.56.0"
   resolved "https://registry.yarnpkg.com/@tsed/swagger/-/swagger-5.56.0.tgz#5bf2c0bf7154433b4865aafc8c865ae4ca4b5a02"

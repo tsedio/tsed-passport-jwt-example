@@ -1,13 +1,13 @@
-import {TestContext} from "@tsed/testing";
+import {PlatformTest} from "@tsed/common";
 import {UsersService} from "./UsersService";
 
 describe("UsersService", () => {
-  beforeEach(TestContext.create);
-  afterEach(TestContext.reset);
+  beforeEach(PlatformTest.create);
+  afterEach(PlatformTest.reset);
 
   it(
     "should do something",
-    TestContext.inject([UsersService], (controller: UsersService) => {
+    PlatformTest.inject([UsersService], (controller: UsersService) => {
       expect(controller).toBeInstanceOf(UsersService);
     })
   );

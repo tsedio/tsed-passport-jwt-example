@@ -1,9 +1,10 @@
+import {PlatformTest} from "@tsed/common";
 import {TestContext} from "@tsed/testing";
 import {LocalProtocol} from "./LocalProtocol";
 
 describe("LocalProtocol", () => {
-  beforeEach(TestContext.create);
-  afterEach(TestContext.reset);
+  beforeEach(PlatformTest.create);
+  afterEach(PlatformTest.reset);
 
   it(
     "should do something",

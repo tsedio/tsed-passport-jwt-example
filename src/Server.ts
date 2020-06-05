@@ -1,5 +1,6 @@
 import "@tsed/ajv";
-import {GlobalAcceptMimesMiddleware, ServerLoader, ServerSettings} from "@tsed/common";
+import {Configuration, GlobalAcceptMimesMiddleware, Inject, PlatformApplication} from "@tsed/common";
+import "@tsed/platform-express";
 import "@tsed/swagger";
 import * as bodyParser from "body-parser";
 import * as compress from "compression";
@@ -10,18 +11,18 @@ import {User} from "./models/User";
 
 const rootDir = __dirname;
 
-@ServerSettings({
+@Configuration({
   rootDir,
   acceptMimes: ["application/json"],
   httpPort: process.env.PORT || 8083,
   httpsPort: false, // CHANGE
   mount: {
-    "/rest": [`${rootDir}/controllers/**/*.ts`],
+    "/rest": [`${rootDir}/controllers/**/*.ts`]
   },
   swagger: [
     {
-      path: "/docs",
-    },
+      path: "/docs"
+    }
   ],
   exclude: ["**/*.spec.ts"],
   componentsScan: [`${rootDir}/protocols/*Protocol.ts`],
@@ -32,15 +33,19 @@ const rootDir = __dirname;
         settings: {
           secretOrKey: "thisismysupersecretprivatekey1",
           issuer: "localhost",
-          audience: "localhost",
-        },
-      },
-    },
-  },
+          audience: "localhost"
+        }
+      }
+    }
+  }
 })
-export class Server extends ServerLoader {
+export class Server {
+  @Inject()
+  app: PlatformApplication;
+
   $beforeRoutesInit() {
-    this.use(cors())
+    this.app
+      .use(cors())
       .use(GlobalAcceptMimesMiddleware)
       .use(cookieParser())
       .use(compress({}))
@@ -48,7 +53,7 @@ export class Server extends ServerLoader {
       .use(bodyParser.json())
       .use(
         bodyParser.urlencoded({
-          extended: true,
+          extended: true
         })
       );
 
