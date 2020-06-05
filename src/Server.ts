@@ -27,16 +27,7 @@ const rootDir = __dirname;
   exclude: ["**/*.spec.ts"],
   componentsScan: [`${rootDir}/protocols/*Protocol.ts`],
   passport: {
-    userInfoModel: User,
-    protocols: {
-      jwt: {
-        settings: {
-          secretOrKey: "thisismysupersecretprivatekey1",
-          issuer: "localhost",
-          audience: "localhost"
-        }
-      }
-    }
+    userInfoModel: User
   }
 })
 export class Server {

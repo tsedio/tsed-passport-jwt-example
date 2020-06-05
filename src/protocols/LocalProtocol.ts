@@ -11,8 +11,8 @@ import {UsersService} from "../services/UsersService";
   useStrategy: Strategy,
   settings: {
     usernameField: "email",
-    passwordField: "password",
-  },
+    passwordField: "password"
+  }
 })
 export class LocalProtocol implements OnVerify {
   @Inject()
@@ -51,7 +51,7 @@ export class LocalProtocol implements OnVerify {
         aud: audience,
         sub: user.id,
         exp: now + maxAge * 1000,
-        iat: now,
+        iat: now
       },
       secretOrKey
     );

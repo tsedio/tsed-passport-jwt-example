@@ -10,8 +10,8 @@ export class UsersService {
       email: "admin",
       password: "admin",
       token:
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJsb2NhbGhvc3QiLCJhdWQiOiJsb2NhbGhvc3QiLCJzdWIiOiIxIiwiZXhwIjoxNTkxMjA0OTk2ODg2LCJpYXQiOjE1OTEyMDEzOTY4ODZ9.H_dedPLAlkVU_Zw-UthX3RSaysrBartNWILcnJKichc",
-    }),
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJsb2NhbGhvc3QiLCJhdWQiOiJsb2NhbGhvc3QiLCJzdWIiOiIxIiwiZXhwIjoxNTkxMjA0OTk2ODg2LCJpYXQiOjE1OTEyMDEzOTY4ODZ9.H_dedPLAlkVU_Zw-UthX3RSaysrBartNWILcnJKichc"
+    })
   ];
 
   findOne(query: any): User | undefined {

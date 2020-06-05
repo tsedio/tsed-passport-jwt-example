@@ -15,14 +15,14 @@
     "prettier": "prettier '{src,test}/**/*.ts' --write"
   },
   "dependencies": {
-    "@tsed/ajv": "5.56.0",
-    "@tsed/common": "5.56.0",
-    "@tsed/core": "5.56.0",
-    "@tsed/di": "5.56.0",
-    "@tsed/platform-express": "5.56.0",
-    "@tsed/passport": "5.56.0",
-    "@tsed/swagger": "5.56.0",
-    "@tsed/exceptions": "5.56.0",
+    "@tsed/ajv": "5.57.0",
+    "@tsed/common": "5.57.0",
+    "@tsed/core": "5.57.0",
+    "@tsed/di": "5.57.0",
+    "@tsed/platform-express": "5.57.0",
+    "@tsed/passport": "5.57.0",
+    "@tsed/swagger": "5.57.0",
+    "@tsed/exceptions": "5.57.0",
     "ajv": "6.12.2",
     "body-parser": "1.19.0",
     "compression": "1.7.4",
@@ -36,14 +36,12 @@
     "method-override": "3.0.0",
     "passport": "0.4.1",
     "passport-jwt": "4.0.0",
-    "passport-local": "1.0.0",
-    "undefined": "^0.1.0"
+    "passport-local": "1.0.0"
   },
   "devDependencies": {
     "@tsed/cli-plugin-eslint": "1.13.5",
     "@tsed/cli-plugin-jest": "1.13.5",
     "@tsed/cli-plugin-passport": "1.13.5",
-    "@tsed/testing": "5.56.0",
     "@types/compression": "1.7.0",
     "@types/cookie-parser": "1.4.2",
     "@types/cors": "2.8.6",
