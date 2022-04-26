@@ -1,5 +1,5 @@
 import {Injectable} from "@tsed/di";
-import * as _ from "lodash";
+import _ from "lodash";
 import {User} from "../models/User";
 
 @Injectable()
