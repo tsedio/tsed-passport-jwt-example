@@ -1,5 +1,5 @@
 import {PlatformApplication, PlatformTest} from "@tsed/common";
-import * as SuperTest from "supertest";
+import SuperTest from "supertest";
 import {Server} from "./Server";
 
 describe("Server", () => {

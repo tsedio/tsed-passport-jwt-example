@@ -1,53 +1,47 @@
+import {Configuration, Inject} from "@tsed/di";
+import {PlatformApplication} from "@tsed/common";
+import "@tsed/platform-express"; // /!\ keep this import
+import bodyParser from "body-parser";
+import compress from "compression";
+import cookieParser from "cookie-parser";
+import methodOverride from "method-override";
+import cors from "cors";
 import "@tsed/ajv";
-import {Configuration, GlobalAcceptMimesMiddleware, Inject, PlatformApplication} from "@tsed/common";
-import "@tsed/platform-express";
 import "@tsed/swagger";
-import * as bodyParser from "body-parser";
-import * as compress from "compression";
-import * as cookieParser from "cookie-parser";
-import * as cors from "cors";
-import * as methodOverride from "method-override";
-import {User} from "./models/User";
-
-const rootDir = __dirname;
+import {config} from "./config";
+import * as rest from "./controllers/rest";
+import * as pages from "./controllers/pages";
+import "./protocols";
 
 @Configuration({
-  rootDir,
+  ...config,
   acceptMimes: ["application/json"],
   httpPort: process.env.PORT || 8083,
   httpsPort: false, // CHANGE
+  componentsScan: false,
   mount: {
-    "/rest": [`${rootDir}/controllers/**/*.ts`]
+    "/rest": [
+      ...Object.values(rest)
+    ],
+    "/": [
+      ...Object.values(pages)
+    ]
   },
-  swagger: [
-    {
-      path: "/docs"
-    }
-  ],
-  exclude: ["**/*.spec.ts"],
-  componentsScan: [`${rootDir}/protocols/*Protocol.ts`],
-  passport: {
-    userInfoModel: User
-  }
+  middlewares: [
+    cors(),
+    cookieParser(),
+    compress({}),
+    methodOverride(),
+    bodyParser.json(),
+    bodyParser.urlencoded({
+      extended: true
+    })
+  ]
 })
 export class Server {
   @Inject()
-  app: PlatformApplication;
+  protected app: PlatformApplication;
 
-  $beforeRoutesInit() {
-    this.app
-      .use(cors())
-      .use(GlobalAcceptMimesMiddleware)
-      .use(cookieParser())
-      .use(compress({}))
-      .use(methodOverride())
-      .use(bodyParser.json())
-      .use(
-        bodyParser.urlencoded({
-          extended: true
-        })
-      );
-
-    return null;
-  }
+  @Configuration()
+  protected settings: Configuration;
 }

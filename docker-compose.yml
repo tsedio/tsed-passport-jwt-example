@@ -10,7 +10,10 @@ services:
         - no_proxy
     image: tsed-jwt-example/server:latest
     ports:
-      - "8081:8081"
-    stdin_open: true  # -i
-    tty: true         # -t
-
+      - '8081:8081'
+    stdin_open: true
+    tty: true
+  mongodb:
+    image: mongo:4.1
+    ports:
+      - '27017:27017'

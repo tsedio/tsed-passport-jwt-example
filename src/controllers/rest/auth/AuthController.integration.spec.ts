@@ -1,6 +1,6 @@
-import {PlatformApplication, PlatformTest} from "@tsed/common";
-import * as SuperTest from "supertest";
-import {Server} from "../../Server";
+import {PlatformTest} from "@tsed/common";
+import SuperTest from "supertest";
+import {Server} from "../../../Server";
 import {AuthController} from "./AuthController";
 
 describe("AuthController", () => {
@@ -13,11 +13,9 @@ describe("AuthController", () => {
       }
     })
   );
-  beforeEach(
-    PlatformTest.inject([PlatformApplication], (app: PlatformApplication) => {
-      request = SuperTest(app.raw);
-    })
-  );
+  beforeEach(() => {
+    request = SuperTest(PlatformTest.callback());
+  });
 
   afterEach(PlatformTest.reset);
 
