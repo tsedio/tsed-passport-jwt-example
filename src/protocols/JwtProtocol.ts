@@ -19,7 +19,6 @@ export class JwtProtocol implements OnVerify {
   usersService: UsersService;
 
   async $onVerify(@Req() req: Req, @Arg(0) jwtPayload: any) {
-    console.log(jwtPayload)
     const user = this.usersService.findOne({
       id: jwtPayload.sub
     });
