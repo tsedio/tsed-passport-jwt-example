@@ -712,10 +712,10 @@
   dependencies:
     tslib "2.3.1"
 
-"@tsed/engines@^6.114.2":
-  version "6.114.2"
-  resolved "https://registry.yarnpkg.com/@tsed/engines/-/engines-6.114.2.tgz#3ca2919a248a676d298448d5c8d9c559d1db6416"
-  integrity sha512-s4lr+LTPF4UCayFi7DTvGxgvbt5K93i17hM5FVSs0kg0MWiRLoEdD2oiYieRWiaUe5L7yIKZuw1nGTHkCc2Img==
+"@tsed/engines@^6.114.14":
+  version "6.114.14"
+  resolved "https://registry.yarnpkg.com/@tsed/engines/-/engines-6.114.14.tgz#e54a44c1afbc97a9b829728c28bf62f2e12dc454"
+  integrity sha512-krI+h+mDc3cn9f6hYgLiPx6c140+axODbZ2OfexUb3QKu25WaTtJl3NcF8Men3OfadK7/tNafOBkza523jnfmQ==
   dependencies:
     fs-extra "10.0.1"
     tslib "^2.3.1"
