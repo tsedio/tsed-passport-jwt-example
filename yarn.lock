@@ -808,10 +808,17 @@
   dependencies:
     tslib "2.3.1"
 
-"@tsed/platform-middlewares@6.114.2", "@tsed/platform-middlewares@^6.114.2":
+"@tsed/platform-middlewares@6.114.2":
   version "6.114.2"
   resolved "https://registry.yarnpkg.com/@tsed/platform-middlewares/-/platform-middlewares-6.114.2.tgz#66d4795851c6fe34c8307748434e50a5f7d8070d"
   integrity sha512-YxbqZYGKO3YElw7bS/omLQ24cpsgMSVy214U23l+H8NPWlZS2Tel5Rd0VEELVbXHuk81TeGbGmYYFOmVIc52SQ==
+  dependencies:
+    tslib "2.3.1"
+
+"@tsed/platform-middlewares@^6.114.14":
+  version "6.114.14"
+  resolved "https://registry.yarnpkg.com/@tsed/platform-middlewares/-/platform-middlewares-6.114.14.tgz#3d88e2adcbe85e4c3ec680b87190bb3ef80260a4"
+  integrity sha512-OAlsFt5YNh/mUzwRdxnmFh3lhsMdvx4VQuWzT/hKC/WbGS5MMDSz5bKzXR/P6gW9nQnQAreROQxY8Y38div2Rw==
   dependencies:
     tslib "2.3.1"
 
