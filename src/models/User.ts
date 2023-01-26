@@ -1,11 +1,23 @@
-import {UserInfo} from "@tsed/passport";
+import {Example, Format, Groups, Property} from "@tsed/schema";
 
-export class User extends UserInfo {
+export class User {
+  @Property()
+  @Groups("!credentials")
+  id: string;
+
+  @Property()
+  @Format("email")
+  @Example("admin@tsed.io")
+  email: string;
+
+  @Groups("credentials")
+  @Example("admin")
+  password: string;
+
+  @Groups("token", "!credentials")
   token: string;
 
   constructor(props: any) {
-    super();
-
     this.id = props.id;
     this.email = props.email;
     this.password = props.password;

@@ -1,16 +1,11 @@
-import {Configuration, Inject} from "@tsed/di";
-import {PlatformApplication} from "@tsed/common";
-import "@tsed/platform-express"; // /!\ keep this import
-import bodyParser from "body-parser";
-import compress from "compression";
-import cookieParser from "cookie-parser";
-import methodOverride from "method-override";
-import cors from "cors";
 import "@tsed/ajv";
+import {PlatformApplication} from "@tsed/common";
+import {Configuration, Inject} from "@tsed/di";
+import "@tsed/platform-express"; // /!\ keep this import
 import "@tsed/swagger";
 import {config} from "./config";
-import * as rest from "./controllers/rest";
 import * as pages from "./controllers/pages";
+import * as rest from "./controllers/rest";
 import "./protocols";
 
 @Configuration({
@@ -18,7 +13,7 @@ import "./protocols";
   acceptMimes: ["application/json"],
   httpPort: process.env.PORT || 8083,
   httpsPort: false, // CHANGE
-  componentsScan: false,
+  disableComponentsScan: true,
   mount: {
     "/rest": [
       ...Object.values(rest)
@@ -28,14 +23,12 @@ import "./protocols";
     ]
   },
   middlewares: [
-    cors(),
-    cookieParser(),
-    compress({}),
-    methodOverride(),
-    bodyParser.json(),
-    bodyParser.urlencoded({
-      extended: true
-    })
+    "cors",
+    "cookie-parser",
+    "compression",
+    "method-override",
+    'json-parser',
+    {use: 'urlencoded-parser', options: {extended: true}}
   ]
 })
 export class Server {
